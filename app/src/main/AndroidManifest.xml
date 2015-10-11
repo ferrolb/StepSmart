@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="edu.emory.sph.stepsmart"
+      android:versionCode="1"
+      android:versionName="1.0">
+
+    <uses-sdk android:targetSdkVersion="19" android:minSdkVersion="19"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    
+
+    <application android:label="@string/app_name" android:icon="@drawable/walking_icon" android:name="StepSmartApp">
+        <activity android:name="CounterActivity"
+            	  android:launchMode="singleTop"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+	        android:name="edu.emory.sph.stepsmart.SettingsActivity"
+	        android:label="@string/app_name"
+	        android:parentActivityName="edu.emory.sph.stepsmart.CounterActivity" >
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="edu.emory.sph.stepsmart.CounterActivity" />
+    	</activity>
+
+        <activity
+            android:name="edu.emory.sph.stepsmart.UserRegistrationActivity"
+            android:label="User Registration">
+            >
+        </activity>
+
+        <activity
+            android:name="edu.emory.sph.stepsmart.UserLoginActivity"
+            android:label="User login">
+        </activity>
+
+        <service 	android:enabled="true" 
+            		android:name="edu.emory.sph.stepsmart.StepService"
+            		android:permission="edu.emory.sph.healthtracker.STEP_SERVICE_PERMISSION"/>
+
+        <service android:name="edu.emory.sph.stepsmart.authentication.AuthenticationService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+        
+        
+	   <receiver android:name="ScheduleManager">
+	      <intent-filter>
+	         <action android:name="edu.emory.sph.stepsmart.clearDailyTotals">
+	      </action>
+	      </intent-filter>
+	   </receiver>
+
+        <receiver android:name="RebootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>	   
+        
+    </application>
+</manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Step Smart</string>
+    <string name="msg_account_created">Account created</string>
+    <string name="err_account_not_created">Account not created</string>
+    <string name="err_msg_no_accounts">No accounts found</string>
+    <string name="err_msg_no_account_for_user">No account found for user:</string>
+    <string name="err_msg_password_confirm_mismatch">Invalid Password. Reason: password and confirmation password are not the same.</string>
+    <string name="err_msg_password_strength">Invalid Password. Reason: failed to meet strength requirement.</string>
+    <string name="err_msg_username_blank">Invalid User Name. Reason: blank.</string>
+    <string name="err_msg_invalid_password">Invalid password</string>
+    <string name="err_msg_username_exceeds_max_len">Invalid user name. Reason: exceeds maximum length.</string>
+    <string name="err_msg_username_under_min_len">Invalid user name. Reason: does not meet minimum length.</string>
+    <string name="msg_account_already_exists">Account already exists.</string>
+</resources>

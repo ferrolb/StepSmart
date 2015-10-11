@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/userRegistrationMainLayout"
+    android:weightSum="1">
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+            <!--android:text="@string/textview_registration_title"-->
+            <!--android:id="@+id/textViewRegistrationTitle"-->
+            <!--android:inputType="none" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/textview_registration_message"-->
+            <!--android:id="@+id/textViewRegistrationMessage"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="5dp" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:id="@+id/textViewNewUserNameTitle"
+            android:textSize="18sp"
+            android:layout_gravity="left"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNewUserName"
+            android:layout_weight="0.05"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New password"
+            android:id="@+id/textViewNewPassword"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNewPassword"
+            android:layout_weight="0.05"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm password"
+            android:id="@+id/textViewNewPasswordConfirm"
+            android:paddingTop="5dp"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNewPasswordConfirm"
+            android:layout_weight="0.05"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword"
+            android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create new account"
+        android:id="@+id/buttonCreateNewAccount"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:enabled="true"
+        android:layout_marginTop="15dp"
+        android:onClick="onButtonCreateAccountClick" />
+
+</LinearLayout>

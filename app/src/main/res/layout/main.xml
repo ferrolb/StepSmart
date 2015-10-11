@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    		  xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:gravity="bottom"
+              android:layout_width="match_parent"
+              android:background="@drawable/hiresatlanta"
+              android:layout_height="fill_parent">
+
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="72dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/single_walker"
+        android:layout_weight="0.00"
+        android:layout_gravity="left" />
+
+
+ 	<ProgressBar
+ 		android:id="@+id/progressBar2"
+ 		style="?android:attr/progressBarStyleHorizontal"
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+ 		android:layout_marginTop="5dp"
+ 		android:progress="50"/>
+
+<!--   Just putting this here for now:
+	android:progressDrawable="@drawable/progressbar2"
+<com.todddavies.components.progressbar.ProgressWheel
+	    android:id="@+id/pw_spinner"
+	    android:layout_width="188dp"
+	    android:layout_height="179dp"
+	    ProgressWheel:barColor="#0097D6"
+	    ProgressWheel:barLength="60dp"
+	    ProgressWheel:barWidth="15dp"
+	    ProgressWheel:rimColor="#330097D6"
+	    ProgressWheel:rimWidth="2dp"
+	    ProgressWheel:text="0"
+	    ProgressWheel:textColor="@color/lightblue"
+	    ProgressWheel:textSize="35sp" />-->
+
+    <TextView
+        android:id="@+id/txtSteps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="0"
+        android:textStyle="bold"
+        android:textColor="@color/lightblue"
+        android:textSize="40sp" />
+
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:orientation="horizontal" >
+   	
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Goal:"
+	        android:textStyle="bold"
+	        android:textColor="@color/lightblue"
+	        android:textSize="22sp" />
+	    
+	    <View
+			android:layout_width="10dp"
+			android:layout_height="1dp">
+		</View>
+	
+	    <TextView
+	        android:id="@+id/textGoal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="0"
+	        android:textStyle="bold"
+	        android:textColor="@color/lightblue"
+	        android:textSize="30sp" />
+		<View
+			android:layout_width="10dp"
+			android:layout_height="1dp">
+		</View>
+		
+	    <TextView
+	        android:id="@+id/lblTotals"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Steps"
+	        android:textStyle="bold"
+	        android:textColor="@color/lightblue"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+
+<!--    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.24"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/settingsBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Settings" />
+
+
+
+</LinearLayout>
+
