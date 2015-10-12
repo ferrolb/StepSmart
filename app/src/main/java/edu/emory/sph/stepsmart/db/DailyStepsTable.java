@@ -5,16 +5,17 @@ import android.util.Log;
 
 public class DailyStepsTable 
 {
-	  // Database table
-	  public static final String TABLE_NAME = "daily_steps";
-	  public static final String COL_ID = "_id";
-	  public static final String COL_DATE = "date";
-	  public static final String COL_STEPS = "steps";
-	  public static final String COL_GOAL = "goal";
+	// Database table
+	public static final String TABLE = "daily_steps";
+	public static final String COL_ID = "_id";
+	public static final String COL_DATE = "date";
+	public static final String COL_STEPS = "steps";
+	public static final String COL_GOAL = "goal";
+	public static final String TEMP_TABLE = "temp_"+TABLE;
 
 	  // Database creation SQL statement
 	  private static final String DATABASE_CREATE = "create table " 
-	      + TABLE_NAME
+	      + TABLE
 	      + "(" 
 	      + COL_ID + " integer primary key autoincrement, " 
 	      + COL_DATE + " text not null, " 
@@ -28,11 +29,21 @@ public class DailyStepsTable
 
 	  public static void onUpgrade(SQLiteDatabase database, int oldVersion,
 	      int newVersion) {
-	    Log.w(DailyStepsTable.class.getName(), "Upgrading database from version "
-	        + oldVersion + " to " + newVersion
-	        + ", which will destroy all old data");
-	    database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-	    onCreate(database);
+
+//		if (oldVersion < 2) {
+//			db.execSQL(DATABASE_TABLE2);
+//		}
+//		if (oldVersion < 3) {
+//			db.execSQL(DATABASE_TABLE2);
+//		}
+		  String alter_query1="alter table "+TABLE+" RENAME TO "+TEMP_TABLE+";";
+		  String alter_query2="insert into "+TABLE+" select * from "+TEMP_TABLE+";";
+		  String alter_query3="DROP TABLE "+TEMP_TABLE+";";
+
+		  database.execSQL(alter_query1);
+		  DailyStepsTable.onCreate(database);
+		  database.execSQL(alter_query2);
+		  database.execSQL(alter_query3);
 	  }
 
 }

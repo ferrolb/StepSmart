@@ -19,12 +19,13 @@ public class StepSmartDBHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		DailyStepsTable.onCreate(db);
-		Log.i("StepSmartDBHelper.onCreate()", "Database created");
+		Log.i("onCreate()", "Database created");
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
-
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		DailyStepsTable.onUpgrade(db, oldVersion, newVersion);
+		Log.i("onUpgrade()", "Database data copied");
 	}
 
 }
