@@ -13,6 +13,8 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -41,6 +43,7 @@ public class CounterActivity extends Activity
     private ProgressBar mProgressBar;
 	private TextView mGoalView;
 	private Button mSettingsBtn;
+    private TextView mVersion;
     boolean mActivityRunning;
 	private	SharedPreferences mSP;
 	private double goal = 0.0;
@@ -60,6 +63,18 @@ public class CounterActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         setTitle(R.string.app_name);
+
+
+        PackageInfo pInfo = null;
+        String version = "0.0.0";
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionName;
+            mVersion = (TextView) findViewById(R.id.lblVersion);
+            mVersion.setText(version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         mSteps = (TextView) findViewById(R.id.txtSteps);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar2);

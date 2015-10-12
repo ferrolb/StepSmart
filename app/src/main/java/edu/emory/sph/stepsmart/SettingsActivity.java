@@ -69,7 +69,7 @@ public class SettingsActivity extends Activity implements OnSeekBarChangeListene
 			cv.put(DailyStepsTable.COL_DATE, day);
 			cv.put(DailyStepsTable.COL_STEPS, steps);
             cv.put(DailyStepsTable.COL_GOAL, mSP.getInt(Constants.DAILY_GOAL, mLow));
-			db.insert(DailyStepsTable.TABLE_NAME, null, cv);
+			db.insert(DailyStepsTable.TABLE, null, cv);
 			c.add(Calendar.DAY_OF_MONTH, 1);
 			steps++;
 		}

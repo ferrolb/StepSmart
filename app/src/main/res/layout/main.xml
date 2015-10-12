@@ -104,13 +104,18 @@
     <Button
         android:id="@+id/settingsBtn"
         style="?android:attr/buttonStyleSmall"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Settings" />
 
-
+	<TextView
+		android:id="@+id/lblVersion"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="0.0.0"
+		android:textStyle="normal"
+		android:textColor="@color/lightblue" />
 
 </LinearLayout>
 

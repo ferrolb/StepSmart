@@ -286,7 +286,7 @@ public class StepService extends Service implements SensorEventListener {
 		cv.put(DailyStepsTable.COL_DATE, mSP.getString(Constants.STEPS_DATE, Constants.getTodaysDate()));
 		cv.put(DailyStepsTable.COL_STEPS, mSP.getInt(Constants.DAILY_STEPS, 0));
 		cv.put(DailyStepsTable.COL_GOAL, mSP.getInt(Constants.DAILY_GOAL, 0));
-		db.insert(DailyStepsTable.TABLE_NAME, null, cv);
+		db.insert(DailyStepsTable.TABLE, null, cv);
 		db.close();	
 		log("Storing:"+mSP.getString(Constants.STEPS_DATE, Constants.getTodaysDate())+", "+mSP.getInt(Constants.DAILY_STEPS, 0));
 	}
