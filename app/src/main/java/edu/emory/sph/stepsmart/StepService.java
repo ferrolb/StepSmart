@@ -151,6 +151,7 @@ public class StepService extends Service implements SensorEventListener {
         mSP_Editor.putInt(Constants.DAILY_GOAL, dbq.getWeeklyAverage());
         mSP_Editor.putString(Constants.DAILY_GOAL_DATE, Constants.getTodaysDate());
         mSP_Editor.apply();
+		log("Setting daily goal to daily average "+dbq.getWeeklyAverage());
     }
 	
 	private void testAndSendNotifications(int daily_steps)
@@ -240,7 +241,7 @@ public class StepService extends Service implements SensorEventListener {
     	  {
     		  mFirstValue = steps;
 //              // TODO: FERROL - remove
-//              log("mFirstVale<1, steps:"+steps);
+              log("mFirstVale<1, steps:"+steps);
     	  }
     	  else
     	  {
@@ -252,6 +253,10 @@ public class StepService extends Service implements SensorEventListener {
     			  Constants.initializeNotifications( getApplicationContext(), mInitTotalDailySteps );
     		  }
     		  int diff = steps - mFirstValue;
+			  if (diff <= 0) {
+				  log("##diff="+diff+"## steps:"+steps+ " mTotalSteps:"+mTotalSteps + " daily_steps:"+daily_steps);
+				  diff = 0;
+			  }
     		  mTotalSteps = diff + mInitTotalSteps;
     		  daily_steps = diff + mInitTotalDailySteps; 		
             
@@ -319,6 +324,7 @@ public class StepService extends Service implements SensorEventListener {
 			mSP_Editor.putInt(Constants.DAILY_GOAL, goal);
 			mSP_Editor.putString(Constants.DAILY_GOAL_DATE, Constants.getTodaysDate());
 			mSP_Editor.apply();
+			log("Increased daily goal to "+goal);
 		}
 	}
 	
